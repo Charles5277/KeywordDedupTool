@@ -43,6 +43,8 @@ async function run() {
 
   const model = genAI.getGenerativeModel({
     model: 'gemini-1.5-pro',
+    systemInstruction:
+      '這是一個關鍵字去重工具，找出名詞複數、時態差異、名詞縮寫、相似詞、僅差異 dash 或 underscore 等情況，並只留下 total link strength 值較大的項目',
   });
 
   const chatSession = model.startChat({
