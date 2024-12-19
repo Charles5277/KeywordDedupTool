@@ -25,7 +25,7 @@ GEMINI_API=Xxoo12345678
 
 ## 準備檔案
 
-- 在 src/input 中放來源檔案 input.txt
+- 在 src/input 中放來源檔案 origin.txt
 
 例如:
 
@@ -40,8 +40,16 @@ id	keyword	occurrences	total link strength
 
 ## 執行分析
 
+- 初次啟動需先執行
+
 ```
-pnpm start
+docker compose exec app pnpm start
+```
+
+- 之後只需執行
+
+```
+docker-compose exec app pnpm start
 ```
 
 ## 取得結果
