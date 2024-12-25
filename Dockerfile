@@ -1,11 +1,13 @@
-FROM node:18
+FROM node:22-alpine
 
-# 安裝 pnpm
 RUN npm install -g pnpm
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package.json pnpm-lock.yaml ./
-RUN pnpm install
+
+RUN pnpm store prune && \
+    rm -rf node_modules && \
+    pnpm install
 
 CMD ["tail", "-f", "/dev/null"]
